@@ -67,7 +67,6 @@ exports.getMovie =async(req,res)=>{
 //GET RANDOM
 
 exports.getMovieRundom = async(req,res)=>{
-    console.log(req.query.type)
     const type = req.query.type;
     let movie;
     try {
@@ -84,7 +83,6 @@ exports.getMovieRundom = async(req,res)=>{
         }
         res.status(200).json(movie)
     } catch (error) {
-        console.log(error)
         res.status(500).json(error)
     }
 }

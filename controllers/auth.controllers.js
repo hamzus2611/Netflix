@@ -46,7 +46,6 @@ exports.login = async (req, res) => {
         const { password, ...info } = await user._doc;
         return res.send({ ...info, accessToken })
     } catch (error) {
-        console.log(error)
         return res.status(500).json(error)
     }
 
