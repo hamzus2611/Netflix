@@ -6,7 +6,7 @@ const router = require('express').Router();
 
 router.post('/createList', verify, creatlist)
 router.delete('/deletelist', verify, deletelist)
-router.get('/get', verify, getlist)
+router.get('/get', getlist)
 
 
 module.exports = router

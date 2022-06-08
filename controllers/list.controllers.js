@@ -2,64 +2,64 @@ const List = require("../models/List")
 
 
 // CREATE
-exports.creatlist =async(req,res)=>{
+exports.creatlist = async (req, res) => {
 
-    if(req.user.isAdmin){
+    if (req.user.isAdmin) {
         const newList = await List(req.body);
         try {
             await newList.save();
-            res.status(200).json(newList)
+            return res.status(200).json(newList)
         } catch (error) {
-            res.status(500).json(error)
+            return res.status(501).json(error)
         }
-    }else{
-        res.status(403).json("You are not allowed!!");
+    } else {
+        return res.status(403).json("You are not allowed!!");
     }
-    
+
 }
 
 //DELETE
-exports.deletelist =async(req,res)=>{
+exports.deletelist = async (req, res) => {
 
-    if(req.user.isAdmin){
+    if (req.user.isAdmin) {
         try {
-        await List.findByIdAndDelete(req.params.id);
-        res.status(201).json("the list has been delete...")
+            await List.findByIdAndDelete(req.params.id);
+            return res.status(201).json("the list has been delete...")
         } catch (error) {
-            res.status(500).json(error)
+            return res.status(500).json(error)
         }
-    }else{
-        res.status(403).json("You are not allowed!!");
+    } else {
+        return res.status(403).json("You are not allowed!!");
     }
-    
+
 }
 
 //GET
 
-exports.getlist = async(req,res)=>{
-    const typeQuery=req.query.type;
+exports.getlist = async (req, res) => {
+    const typeQuery = req.query.type;
     const genreQuery = req.query.genre;
-    let list =[];
+    let list = [];
     try {
-        if(typeQuery){
-            if(genreQuery){
+        if (typeQuery) {
+            if (genreQuery) {
                 list = await List.aggregate([
-                    {$sample: {size : 10}},
-                    {$match : {type:typeQuery , genre:genreQuery}},
+                    { $sample: { size: 10 } },
+                    { $match: { type: typeQuery, genre: genreQuery } },
                 ])
-            }else{
+            } else {
                 list = await List.aggregate([
-                    {$sample: {size : 10}},
-                    {$match : {type:typeQuery }},
+                    { $sample: { size: 10 } },
+                    { $match: { type: typeQuery } },
                 ])
             }
-        }else{
-            list= await List.aggregate([{$sample : {size : 10 }}])
+        } else {
+            list = await List.aggregate([{ $sample: { size: 10 } }])
         }
-        res.status(200).json(list)
+        return res.send(list)
 
     } catch (error) {
-        res.status(500).json(error)
+        return res.status(500).json(error)
     }
 
 

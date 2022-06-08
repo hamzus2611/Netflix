@@ -5,11 +5,11 @@ const { updateuser, deleteuser, getalluser, getuser, getstat } = require('../con
 
 
 
-router.put('/update/:id',verify, updateuser)
-router.delete('/delete/:id',verify, deleteuser)
-router.get('/getuser/:id',verify, getuser)
-router.get('/getallusers/',verify, getalluser)
-router.get('/stats/',verify, getstat)
+router.put('/update/:id', updateuser)
+router.delete('/delete/:id', deleteuser)
+router.get('/getuser/:id', getuser)
+router.get('/getallusers/', getalluser)
+router.get('/stats/', getstat)
 
 
 module.exports = router;
