@@ -9,7 +9,8 @@ router.put('/update/:id', updateuser)
 router.delete('/delete/:id', deleteuser)
 router.get('/getuser/:id', getuser)
 router.get('/getallusers/', getalluser)
-router.get('/stats/', getstat)
+router.get('/stats', getstat)
+router.get("/",getalluser)
 
 
 module.exports = router;
