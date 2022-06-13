@@ -1,11 +1,13 @@
 import "./navbar.scss";
 import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../Redux/Action/Auth";
+import { Link, useNavigate } from "react-router-dom";
+
 const Navbar = () => {
   const [isScolled, setIsScolled] = useState(false);
+  const navigate = useNavigate();
   window.onscroll = () => {
     setIsScolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
@@ -14,6 +16,8 @@ const Navbar = () => {
   const handelLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    navigate("/login");
+
   };
   return (
     <div className={isScolled ? "navbar scrolled" : "navbar"}>

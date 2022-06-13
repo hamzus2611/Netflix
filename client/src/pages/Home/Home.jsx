@@ -12,10 +12,9 @@ function Home({ Types }) {
   // const [Lists, setLists] = useState([]);
   const { List, Loading } = useSelector((state) => state.ListReducer);
   const [genre, setGenre] = useState(null);
-  console.log("hello");
+  const token = localStorage.getItem("token");
   useEffect(() => {
     // dispatch(getlist(Types, genre));
-    const token = localStorage.getItem("token");
 
     const getRundomList = async () => {
       try {
@@ -25,7 +24,7 @@ function Home({ Types }) {
       }
     };
     !token ? navigate("/login") : getRundomList();
-  }, [Types, genre]);
+  }, [Types, genre, token]);
   return (
     <div className="home">
       {!Loading ? (

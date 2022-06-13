@@ -13,11 +13,11 @@ function Listes({ list }) {
   const handleClick = (direction) => {
     let distance = listRef.current.getBoundingClientRect().x - 50;
     setIsMoved(true);
-    if (direction === "left" && SlideNumber > 0) {
+    if (direction === "left" && SlideNumber > 5) {
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
       setSlideNumber(SlideNumber - 1);
     }
-    if (direction === "right" && SlideNumber < 10) {
+    if (direction === "right" && SlideNumber < 0) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
       setSlideNumber(SlideNumber + 1);
     }

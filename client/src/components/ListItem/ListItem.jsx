@@ -45,9 +45,7 @@ export default function ListItem({ index, item }) {
       {!movie ? (
         <h1>loading</h1>
       ) : (
-        <Link to={{ pathname: "/watch"}}  state={{ movie: movie }}>
          <MovieItem movie={movie} index={index} />
-        </Link>
       )}
     </div>
   );

@@ -74,5 +74,37 @@
         cursor: pointer;
       }
     }
+    .inputs {
+      width: 50%;
+      border-color: white;
+      display: flex;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      height: 50px;
+      border-radius: 5px;
+      input {
+        margin: 3px;
+        flex: 9;
+        font-size: 22px;
+        height: 100%;
+        width: 100%;
+        border: 5px;
+        padding: 5px 10px;
+      }
+      .registerButton {
+        padding: 10px;
+        margin: 5px;
+        flex: 3;
+        height: 100%;
+        width: 50%;
+        background-color: red;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+      }
+    }
   }
 }

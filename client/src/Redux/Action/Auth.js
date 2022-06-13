@@ -4,6 +4,7 @@ import { LOGIN_SUCCESS, LOGOUT } from './../ActionTypes/actionTypes';
 
 
 export const register = (user) => async (dispatch) => {
+    console.log(user)
     dispatch({
         type: REGISTER
     })
@@ -49,7 +50,7 @@ export const login = (User) => async (dispatch) => {
         console.log(error)
         dispatch({
             type: LOGIN_FAIL,
-            payload: error
+            payload: error.response.data
         })
     }
 }
