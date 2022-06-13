@@ -1,0 +1,34 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+.containerlogin {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+.Input-holder {
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  top: 20px;
+}
+.loginButton {
+  cursor: pointer;
+}
+.email {
+  margin-bottom: 3px;
+}
+.title {
+  text-align: center;
+  align-items: center;
+  color: blue;
+  text-size-adjust: 10px;
+}
