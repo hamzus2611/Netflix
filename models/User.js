@@ -8,7 +8,7 @@ const UserSchema = new Schema({
     password: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phone: { type: String, required: true },
-    profilePic: { type: String, default: "" },
+    profilePic: { type: String, default: "https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg" },
     isAdmin: { type: Boolean, default: false }
 
 }, { timestamps: true });
