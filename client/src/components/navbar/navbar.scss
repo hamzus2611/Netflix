@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .navbar {
   color: blanchedalmond;
   font-size: 14px;
@@ -21,10 +23,22 @@
       img {
         height: 25px;
         margin-right: 20px;
+        @include mobile{
+          display: none;
+        }
       }
       span {
         margin-right: 20px;
         cursor: pointer;
+
+        @include tablet{
+          display: none;
+        }
+        &.navbarmainLinks{
+          @include tablet{
+            display: block;
+          }
+        }
       }
     }
     .right {
@@ -40,6 +54,7 @@
         border-radius: 5px;
         object-fit: cover;
         cursor: pointer;
+       
       }
       .profile {
         .options {

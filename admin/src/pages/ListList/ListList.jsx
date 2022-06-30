@@ -64,14 +64,22 @@ export default function ListList() {
       {loading ? (
         <h1>loading</h1>
       ) : (
-        <DataGrid
-          rows={Lists}
-          disableSelectionOnClick
-          columns={columns}
-          pageSize={8}
-          checkboxSelection
-          getRowId={(row) => row._id}
-        />
+        <>
+          <div className="listTitleContainer">
+            <h1 className="listTitle">List</h1>
+            <Link to="/newlist">
+              <button className="listAddButton">Create</button>
+            </Link>
+          </div>
+          <DataGrid
+            rows={Lists}
+            disableSelectionOnClick
+            columns={columns}
+            pageSize={8}
+            checkboxSelection
+            getRowId={(row) => row._id}
+          />
+        </>
       )}
     </div>
   );

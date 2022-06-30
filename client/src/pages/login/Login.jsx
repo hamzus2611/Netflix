@@ -24,6 +24,7 @@ function Login() {
     e.preventDefault();
     dispatch(login({ email, password }));
   };
+
   const token = localStorage.getItem("token");
   useEffect(() => {
     if (token) {
@@ -42,8 +43,10 @@ function Login() {
               alt="netflix"
               className="logo"
             />
-            
-            <button className="loginButton">Sign In</button>
+
+            <button component={Link} to="/register" className="loginButton">
+              Sign Up
+            </button>
           </div>
           <div className="container">
             <form action="">
@@ -58,7 +61,7 @@ function Login() {
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {Error ? <h4 color="red" >{Error} </h4> : <h6> </h6>}
+              {Error ? <h4 color="red">{Error} </h4> : <h6> </h6>}
               <button className="loginButton" onClick={handleLogin}>
                 Sign In
               </button>

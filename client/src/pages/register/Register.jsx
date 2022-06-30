@@ -16,18 +16,20 @@ function Register() {
   const [password, setPassword] = useState("");
   const emailRef = useRef();
   const passwordRef = useRef();
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-console.log(email , password,username,lastname,phone)
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
   const handleNext = () => {
     setPassword(passwordRef.current.value);
   };
- 
+
   const handleSubmit = () => {
-    dispatch(register({email, password, username, lastname, phone, profilePic}));
+    console.log(email, password, username, lastname, phone);
+    dispatch(
+      register({ email, password, username, lastname, phone, profilePic })
+    );
   };
   const token = localStorage.getItem("token");
   useEffect(() => {
@@ -44,9 +46,9 @@ console.log(email , password,username,lastname,phone)
             alt="netflix"
             className="logo"
           />
-          <Link to="/login">
-            <Button className="loginButton">Sign In</Button>
-          </Link>
+          <button component={Link} to="/login" className="loginButton">
+            Sign In
+          </button>
         </div>
       </div>
       <div className="container">
@@ -62,23 +64,45 @@ console.log(email , password,username,lastname,phone)
         )}
         {!email && !password ? (
           <div className="input">
-            <input type="email" placeholder="email adress" name="email" ref={emailRef} />
+            <input
+              type="email"
+              placeholder="email adress"
+              name="email"
+              ref={emailRef}
+            />
             <button className="registerButton" onClick={handleStart}>
               Get Started
             </button>
           </div>
         ) : !password ? (
           <div className="input">
-            <input type="password" placeholder="password" name='password' ref={passwordRef} />
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              ref={passwordRef}
+            />
             <button className="registerButton" onClick={handleNext}>
               Next
             </button>
           </div>
         ) : (
           <div className="inputs">
-            <input type="username" placeholder="username" onChange={(e)=>setUsername(e.target.value)} />
-            <input type="lastname" placeholder="lastname" onChange={(e)=>setLastname(e.target.value)} />
-            <input type="phone" placeholder="phone" onChange={(e)=>setPhone(e.target.value)}  />
+            <input
+              type="username"
+              placeholder="username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="lastname"
+              placeholder="lastname"
+              onChange={(e) => setLastname(e.target.value)}
+            />
+            <input
+              type="phone"
+              placeholder="phone"
+              onChange={(e) => setPhone(e.target.value)}
+            />
             <button className="registerButton" onClick={handleSubmit}>
               Start
             </button>
